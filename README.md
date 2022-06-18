@@ -1,2 +1,2 @@
 # food-pov-hack
-Hackathon for donor-focused food bank solutions
+Hacking for donor-focused food bank solutions
