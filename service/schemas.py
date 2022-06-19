@@ -8,11 +8,17 @@ class ItemBase(BaseModel):
     category: str
     quantity: int
 
+    class Config:
+        orm_mode = True
+
 
 class ItemUpdate(BaseModel):
     name: Optional[str]
     category: Optional[str]
     quantity: Optional[int]
+
+    class Config:
+        orm_mode = True
 
 
 class Item(ItemBase):
