@@ -1,5 +1,6 @@
 import Container from "@mui/material/Container";
 import "./App.css";
+import Header from "./components/Header/Header";
 import NavBar from "./components/NavBar/NavBar";
 import AddNewProduct from "./pages/AddNewProduct";
 
@@ -14,7 +15,7 @@ function App() {
         justifyContent: "space-between",
       }}
     >
-      Hello
+      <Header />
       <AddNewProduct />
       <NavBar />
     </Container>

@@ -1,19 +1,19 @@
 import Button from "@mui/material/Button";
 
-const AddItemButton = () => {
+const AddItemButton = (props) => {
   return (
     <Button
       variant="contained"
-      size="large"
+      size={props.size}
       sx={{
-        backgroundColor: "black",
+        backgroundColor: props.backgroundColor,
         textTransform: "none",
         margin: "50px",
         borderRadius: "7px",
         fontWeight: "normal",
       }}
     >
-      Add item manually
+      {props.text}
     </Button>
   );
 };

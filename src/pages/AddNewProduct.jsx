@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 
 import AddByBarcode from "../components/AddByBarcode/AddByBarcode";
-import AddItemButton from "../components/AddItemButton/AddItemButton";
+import Button from "../components/Button/Button";
 
 const AddNewProduct = () => {
   return (
@@ -14,7 +14,9 @@ const AddNewProduct = () => {
       //   sx={{ display: "flex", flexDirection: "column" }}
     >
       <AddByBarcode />
-      <AddItemButton />
+      {/* <AddItemButton text="Scan" /> */}
+      {/* <Button text="Add Item Manually" backgroundColor="red" /> */}
+      <Button text="Add Item Manually" backgroundColor="black" />
     </Box>
   );
 };
