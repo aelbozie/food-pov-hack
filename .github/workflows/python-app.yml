@@ -47,7 +47,7 @@ jobs:
         run: poetry install --no-interaction --no-root
       - name: Lint
         run: |
-          make lint_service
+          make lint
       - name: Test with pytest
         run: |
-          make test_service
+          make test
