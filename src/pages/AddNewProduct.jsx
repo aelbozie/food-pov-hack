@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 
 import AddByBarcode from "../components/AddByBarcode/AddByBarcode";
-import Button from "../components/Button/Button";
+import ReusableButton from "../components/ReusableButton/ReusableButton";
 
 const AddNewProduct = () => {
   return (
@@ -16,7 +16,7 @@ const AddNewProduct = () => {
       <AddByBarcode />
       {/* <AddItemButton text="Scan" /> */}
       {/* <Button text="Add Item Manually" backgroundColor="red" /> */}
-      <Button text="Add Item Manually" backgroundColor="black" />
+      <ReusableButton text="Add Item Manually" backgroundColor="black" />
     </Box>
   );
 };

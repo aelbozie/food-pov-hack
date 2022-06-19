@@ -1,5 +1,5 @@
-import Box from "@mui/material/Box";
 import { useState } from "react";
+import Box from "@mui/material/Box";
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 import HomeIcon from "@mui/icons-material/Home";
@@ -9,7 +9,7 @@ import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 const NavBar = () => {
   const [value, setValue] = useState(0);
   return (
-    <Box sx={{ maxWidth: "sm" }}>
+    <Box sx={{ maxWidth: "sm", height: "56px", justifySelf: "flex-end" }}>
       <BottomNavigation
         showLabels
         value={value}
