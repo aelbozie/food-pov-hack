@@ -1,8 +1,5 @@
 .PHONY: create_database install_service run_service lint_service test_service
 
-create_database:
-	poetry run bin/populate_database.py
-
 install_service:
 	poetry install
 
