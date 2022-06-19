@@ -1,0 +1,9 @@
+[logger]
+level = 'info'
+
+[server]
+headless = true
+
+[browser]
+gatherUsageStats = false
+
