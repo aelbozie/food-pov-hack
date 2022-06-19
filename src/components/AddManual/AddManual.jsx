@@ -25,7 +25,7 @@ const AddManual = ({ product }) => {
   const [itemName, setItemName] = useState(product);
   const [category, setCategory] = useState("");
   const [quantity, setQuantity] = useState(1);
-
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const handleCategoryChange = (e) => {
     setCategory(e.target.value);
     console.log(category);
@@ -38,6 +38,8 @@ const AddManual = ({ product }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(product, category, quantity);
+    setIsSubmitted(true);
+    console.log(isSubmitted);
   };
   return (
     <Box
@@ -134,7 +136,11 @@ const AddManual = ({ product }) => {
           </Button>
         </Box>
       </Box>
-      <ReusableButton text="Add" backgroundColor="black" type="submit" />
+      <ReusableButton
+        text={isSubmitted ? "Success" : "Add"}
+        backgroundColor={isSubmitted ? "green" : "black"}
+        type="submit"
+      />
     </Box>
   );
 };
