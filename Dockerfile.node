@@ -1,0 +1,10 @@
+FROM node:alpine
+
+COPY package.json package.json
+RUN npm install --force
+
+COPY . .  
+CMD ["npm", "start"]  
+
+ENV PORT 3000
+CMD npm start --port $PORT
