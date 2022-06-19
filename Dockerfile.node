@@ -1,9 +1,0 @@
-FROM node:alpine
-
-COPY package.json package-lock.json ./
-RUN npm clean-install --force --production
-
-COPY . .  
-
-ENV PORT 3000
-CMD npm start --port $PORT

@@ -2,7 +2,7 @@ FROM python:3.8
 
 ENV POETRY_VERSION=1.1.13
 
-WORKDIR /code
+WORKDIR /app
 
 RUN pip install "poetry==$POETRY_VERSION"
 
@@ -12,6 +12,6 @@ RUN poetry config virtualenvs.create false && \
     poetry config virtualenvs.in-project false && \
     poetry install 
 
-ENV PORT 8000
+ENV PORT 8001
 
-CMD uvicorn service.main:app --proxy-headers --port $PORT --host 0.0.0.0
+CMD streamlit run app/1_Food_to_Bank.py --server.port $PORT --server.address 0.0.0.0
