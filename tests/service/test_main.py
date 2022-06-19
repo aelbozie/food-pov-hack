@@ -1,17 +1,9 @@
 from typing import List
 
-import pytest
 from sqlalchemy.orm import Session
 from starlette.testclient import TestClient
 
 from service import models, schemas
-from service.main import root
-
-
-@pytest.mark.asyncio
-async def test_root():
-    n = await root()
-    assert len(n) == 1
 
 
 def test_read_empty_items(client: TestClient, empty_db: Session) -> None:
