@@ -54,6 +54,7 @@ const AddManual = ({ product }) => {
       autoComplete="off"
       onSubmit={handleSubmit}
     >
+      {console.log(product)}
       <FormControl>
         <Typography mb={2}>Item name</Typography>
 
