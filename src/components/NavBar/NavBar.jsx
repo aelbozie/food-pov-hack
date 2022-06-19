@@ -2,14 +2,14 @@ import Box from "@mui/material/Box";
 import { useState } from "react";
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
-import RestoreIcon from "@mui/icons-material/Restore";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
+import HomeIcon from "@mui/icons-material/Home";
+import AddIcon from "@mui/icons-material/Add";
+import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 
 const NavBar = () => {
   const [value, setValue] = useState(0);
   return (
-    <Box sx={{ width: 500 }}>
+    <Box sx={{ maxWidth: "sm" }}>
       <BottomNavigation
         showLabels
         value={value}
@@ -17,9 +17,21 @@ const NavBar = () => {
           setValue(newValue);
         }}
       >
-        <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
-        <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
-        <BottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
+        <BottomNavigationAction
+          label="Home"
+          sx={{ color: "black" }}
+          icon={<HomeIcon />}
+        />
+        <BottomNavigationAction
+          label="Add"
+          icon={<AddIcon />}
+          sx={{ color: "black" }}
+        />
+        <BottomNavigationAction
+          label="All Items"
+          sx={{ color: "black" }}
+          icon={<FormatListBulletedIcon />}
+        />
       </BottomNavigation>
     </Box>
   );
