@@ -17,7 +17,7 @@ const AddNewProduct = () => {
       <AddByBarcode />
       {/* <AddItemButton text="Scan" /> */}
 
-      <ReusableButton text="Add Item Manually" backgroundColor="black" />
+      {/* <ReusableButton text="Add Item Manually" backgroundColor="black" /> */}
     </Box>
   );
 };

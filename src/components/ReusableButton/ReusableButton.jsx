@@ -12,6 +12,7 @@ const AddItemButton = (props) => {
         borderRadius: "7px",
         fontWeight: "normal",
       }}
+      type={props.type}
     >
       {props.text}
     </Button>
