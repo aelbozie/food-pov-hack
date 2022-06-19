@@ -1,3 +1,8 @@
 Dockerfile
-.venv
-
+.venv/
+node_modules/
+Makefile
+Dockerfile.*
+setup.cfg
+tests/
+.github/
