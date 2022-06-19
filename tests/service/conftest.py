@@ -1,3 +1,5 @@
+from typing import List
+
 import pytest
 from sqlalchemy.orm import Session
 from starlette.testclient import TestClient
@@ -38,11 +40,9 @@ def empty_db() -> Session:
 
 
 @pytest.fixture()
-def populated_db() -> Session:
-    db = initialise_db()
-    write_mock_table(db, max_item_types=10, max_items=100)
-    yield db
-    teardown_db(db)
+def mock_items(empty_db: Session) -> List[models.Item]:
+    mock_items = write_mock_table(empty_db, max_item_types=10, max_items=100)
+    return mock_items
 
 
 @pytest.fixture()

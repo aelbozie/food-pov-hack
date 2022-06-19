@@ -29,7 +29,8 @@ def generate_mock_items(max_item_types: int, max_items: int) -> List[models.Item
     return items
 
 
-def write_mock_table(db: Session, max_item_types: int, max_items: int) -> None:
+def write_mock_table(db: Session, max_item_types: int, max_items: int) -> List[models.Item]:
     items = generate_mock_items(max_item_types, max_items)
     db.bulk_save_objects(items)
     db.commit()
+    return items

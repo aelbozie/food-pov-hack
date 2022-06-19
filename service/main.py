@@ -31,6 +31,14 @@ def read_items(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     return items
 
 
+@app.get("/items/{item_id}/", response_model=schemas.Item)
+def read_item(item_id: str, db: Session = Depends(get_db)):
+    db_item = crud.get_item_by_id(db, item_id=item_id)
+    if not db_item:
+        raise HTTPException(status_code=404, detail="Item doesn't exist")
+    return db_item
+
+
 @app.post("/items/create_with_barcode/", response_model=schemas.Item)
 def create_item_with_barcode(item: schemas.ItemCreateWithBarcode, db: Session = Depends(get_db)):
     db_item = crud.get_item_by_id(db, item_id=item.id)
@@ -44,7 +52,7 @@ def create_item_without_barcode(item: schemas.ItemCreateWithoutBarcode, db: Sess
     return crud.create_item_without_barcode(db=db, item=item)
 
 
-@app.post("/items/{item_id}/update", response_model=schemas.Item)
+@app.post("/items/{item_id}/update/", response_model=schemas.Item)
 def update_item(item_id: str, item: schemas.ItemUpdate, db: Session = Depends(get_db)):
     db_item = crud.get_item_by_id(db, item_id=item_id)
     if not db_item:
@@ -52,9 +60,9 @@ def update_item(item_id: str, item: schemas.ItemUpdate, db: Session = Depends(ge
     return crud.update_item(db=db, db_item=db_item, item_update=item)
 
 
-@app.post("/items/{item_id}/delete", response_model=schemas.Item)
-def delete_item(item_id: str, db: Session = Depends(get_db)):
+@app.post("/items/{item_id}/delete/")
+def delete_item(item_id: str, db: Session = Depends(get_db)) -> None:
     db_item = crud.get_item_by_id(db, item_id=item_id)
     if not db_item:
         raise HTTPException(status_code=404, detail="Item doesn't exist")
-    return crud.delete_item(db=db, item_id=item_id)
+    crud.delete_item(db=db, item_id=item_id)

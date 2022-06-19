@@ -1,8 +1,11 @@
 import uuid
+from logging import getLogger
 
 from sqlalchemy.orm import Session
 
 from service import models, schemas
+
+logger = getLogger(__name__)
 
 
 def get_items(db: Session, skip: int = 0, limit: int = 100):
@@ -30,7 +33,7 @@ def create_item_without_barcode(db: Session, item: schemas.ItemCreateWithoutBarc
 
 
 def update_item(db: Session, db_item: models.Item, item_update: schemas.ItemUpdate) -> models.Item:
-    fields_to_update = item_update.dict(exclude_unset=True)  # TODO: do we want exclude_none or _unset?
+    fields_to_update = item_update.dict(exclude_none=True)
     for key, value in fields_to_update.items():
         setattr(db_item, key, value)
     db.commit()
@@ -38,9 +41,7 @@ def update_item(db: Session, db_item: models.Item, item_update: schemas.ItemUpda
     return db_item
 
 
-def delete_item(db: Session, item_id: str) -> models.Item:
+def delete_item(db: Session, item_id: str) -> None:
     db_item = get_item_by_id(db, item_id)
     db.delete(db_item)
     db.commit()
-    db.refresh(db_item)  # TODO: should we refresh here?
-    return db_item
