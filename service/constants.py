@@ -1,9 +1,9 @@
-from enum import Enum
+from enum import Enum, auto
 
 
-class Tables(str, Enum):
-    MOCK_INVENTORY = "mock_inventory"
-    INVENTORY = "inventory"
-
-    def __str__(self) -> str:
-        return str(self.value)
+class AllowedCategories(Enum):
+    non_perishables = auto()
+    toiletries = auto()
+    household = auto()
+    baby = auto()
+    miscellaneous = auto()
