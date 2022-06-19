@@ -1,4 +1,4 @@
-FROM python:3.8
+FROM jjanzic/docker-python3-opencv:latest
 
 ENV POETRY_VERSION=1.1.13
 
@@ -8,9 +8,15 @@ RUN pip install "poetry==$POETRY_VERSION"
 
 COPY ./ ./
 
+RUN apt-get update -qy && \
+    apt-get install -qy libzbar0 && \
+	rm -rf /var/lib/apt/lists/* && \
+    apt-get -qq autoremove && \
+    apt-get -qq clean
+
 RUN poetry config virtualenvs.create false && \
     poetry config virtualenvs.in-project false && \
-    poetry install 
+    poetry install --no-dev
 
 ENV PORT 8001
 
