@@ -1,13 +1,11 @@
-.PHONY: create_database install_service run_service lint_service test_service
+all: create_database install_service run_service lint_service test_service
+.PHONY: all
 
 create_database:
-	poetry run bin/populate_database.py
+	poetry run bin/create_database.py
 
 install_service:
 	poetry install
-
-run_service:
-	poetry run uvicorn service.main:app --reload
 
 lint_service:
 	poetry run isort service
@@ -16,4 +14,8 @@ lint_service:
 
 test_service:
 	poetry run pytest tests/service
+
+run_service:
+	poetry run uvicorn service.main:app --reload
+
 
