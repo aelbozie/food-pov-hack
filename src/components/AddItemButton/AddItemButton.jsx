@@ -10,6 +10,7 @@ const AddItemButton = () => {
         textTransform: "none",
         margin: "50px",
         borderRadius: "7px",
+        fontWeight: "normal",
       }}
     >
       Add item manually
