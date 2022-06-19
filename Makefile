@@ -1,16 +1,16 @@
-all: create_database install_service lint_service test_service run_app build run
+all: create_database install lint test run_service run_app build run
 .PHONY: all
 
-install_service:
+install:
 	poetry install
 
-lint_service:
-	poetry run isort service tests
-	poetry run black service tests
-	poetry run flake8 service tests
+lint:
+	poetry run isort app service tests
+	poetry run black app service tests
+	poetry run flake8 app service tests
 
-test_service:
-	poetry run pytest tests/service
+test:
+	poetry run pytest tests
 
 run_service:
 	poetry run uvicorn service.main:app --reload
