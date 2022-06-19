@@ -1,3 +1,4 @@
 build:
   docker:
-    web: Dockerfile.python
+    web: Dockerfile.node
+    worker: Dockerfile.python
