@@ -41,7 +41,7 @@ def empty_db() -> Session:
 
 @pytest.fixture()
 def mock_items(empty_db: Session) -> List[models.Item]:
-    mock_items = write_mock_table(empty_db, max_item_types=10, max_items=100)
+    mock_items = write_mock_table(empty_db, max_items=100)
     return mock_items
 
 

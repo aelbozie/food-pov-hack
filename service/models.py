@@ -1,5 +1,6 @@
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Enum, Integer, String
 
+from service.constants import AllowedCategories
 from service.database import Base
 
 
@@ -8,5 +9,5 @@ class Item(Base):
 
     id = Column(String, primary_key=True, index=True)
     name = Column(String, index=True)
-    category = Column(String, index=True)
+    category = Column(Enum(AllowedCategories), index=True)
     quantity = Column(Integer)

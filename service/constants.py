@@ -1,9 +1,9 @@
-from enum import Enum, auto
+from enum import Enum
 
 
-class AllowedCategories(Enum):
-    non_perishables = auto()
-    toiletries = auto()
-    household = auto()
-    baby = auto()
-    miscellaneous = auto()
+class AllowedCategories(str, Enum):
+    non_perishables = "Non-perishables"
+    toiletries = "Toiletries"
+    household = "Household"
+    baby = "Baby"
+    miscellaneous = "Miscellaneous"
