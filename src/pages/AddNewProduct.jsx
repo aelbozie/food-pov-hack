@@ -11,11 +11,12 @@ const AddNewProduct = () => {
       display="flex"
       flexDirection="column"
       justifyContent="space-around"
+      alignItems="center"
       //   sx={{ display: "flex", flexDirection: "column" }}
     >
       <AddByBarcode />
       {/* <AddItemButton text="Scan" /> */}
-      {/* <Button text="Add Item Manually" backgroundColor="red" /> */}
+
       <ReusableButton text="Add Item Manually" backgroundColor="black" />
     </Box>
   );

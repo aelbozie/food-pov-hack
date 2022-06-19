@@ -28,8 +28,8 @@ function App() {
           height: "calc(100vh - 129.55px)",
         }}
       >
-        <AddManual />
-        {/* <AddNewProduct /> */}
+        <AddNewProduct />
+        {/* <AddManual /> */}
         {/* <AddNewProduct />
         <AddNewProduct /> */}
       </Box>

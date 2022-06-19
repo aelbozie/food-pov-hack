@@ -20,7 +20,7 @@ const categories = [
   "Baby",
   "Miscellaneous",
 ];
-const AddManual = () => {
+const AddManual = ({ product }) => {
   return (
     <Box
       component="form"
@@ -35,12 +35,8 @@ const AddManual = () => {
     >
       <FormControl>
         <Typography mb={2}>Item name</Typography>
-        <TextField
-          fullWidth
-          required
-          id="outlined-required"
-          label="Item name"
-        />
+
+        <TextField fullWidth required value={product} id="outlined-required" />
       </FormControl>
 
       <FormControl>
