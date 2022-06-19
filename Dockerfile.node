@@ -1,7 +1,7 @@
 FROM node:alpine
 
 COPY package.json package-lock.json ./
-RUN npm clean-install --force
+RUN npm clean-install --force --production
 
 COPY . .  
 
