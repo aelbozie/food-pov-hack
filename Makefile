@@ -1,4 +1,4 @@
-all: create_database install_service lint_service test_service run_service build_service
+all: create_database install_service lint_service test_service run_app build run
 .PHONY: all
 
 install_service:
@@ -16,4 +16,11 @@ run_service:
 	poetry run uvicorn service.main:app --reload
 
 run_app:
-	poetry run streamlit run app.py
+	poetry run streamlit run app/1_Food_to_Bank.py
+
+build:
+	docker build -f Dockerfile.python . -t foodhack:latest
+
+run: build
+	docker run -p 8001:8001 -ti foodhack:latest
+
