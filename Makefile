@@ -14,3 +14,10 @@ test_service:
 
 run_service:
 	poetry run uvicorn service.main:app --reload
+
+build_service:
+	docker build . -t foodhack:latest
+
+run_service: build_service
+	docker run -p 8000:8000 -ti foodhack:latest 
+
