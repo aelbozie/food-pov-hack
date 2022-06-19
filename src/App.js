@@ -1,6 +1,7 @@
 import Container from "@mui/material/Container";
 import "./App.css";
 import NavBar from "./components/NavBar/NavBar";
+import AddNewProduct from "./pages/AddNewProduct";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       }}
     >
       Hello
+      <AddNewProduct />
       <NavBar />
     </Container>
   );
