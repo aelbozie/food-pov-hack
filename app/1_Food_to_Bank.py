@@ -27,7 +27,7 @@ def draw_bbox(decoded, image):
 
 
 def decode(image):
-    decoded_objects = [obj for obj in pyzbar.decode(image) if obj.type == "QRCODE"]
+    decoded_objects = pyzbar.decode(image)
     return max(decoded_objects, key=lambda x: x.quality) if decoded_objects else None
 
 
