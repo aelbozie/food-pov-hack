@@ -2,7 +2,7 @@ from enum import Enum
 
 
 class AllowedCategories(str, Enum):
-    non_perishables = "Non-perishables"
+    food_cupboard = "Food cupboard"
     toiletries = "Toiletries"
     household = "Household"
     baby = "Baby"

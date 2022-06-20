@@ -8,10 +8,10 @@ from service import models
 from service.constants import AllowedCategories
 
 MOCK_ITEM_TYPES = {
-    "tinned tomatoes": AllowedCategories.non_perishables,
-    "rice": AllowedCategories.non_perishables,
-    "pasta": AllowedCategories.non_perishables,
-    "sunflower oil": AllowedCategories.non_perishables,
+    "tinned tomatoes": AllowedCategories.food_cupboard,
+    "rice": AllowedCategories.food_cupboard,
+    "pasta": AllowedCategories.food_cupboard,
+    "sunflower oil": AllowedCategories.food_cupboard,
     "shampoo": AllowedCategories.toiletries,
     "hand soap": AllowedCategories.toiletries,
     "nappies": AllowedCategories.baby,

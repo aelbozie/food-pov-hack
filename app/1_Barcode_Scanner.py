@@ -1,3 +1,4 @@
+import time
 from hashlib import sha256
 
 import cv2
@@ -7,10 +8,12 @@ from PIL import Image
 from pyzbar import pyzbar
 
 from app.client import create_item, get_item, update_item
+from app.images import get_images, render_logo
 from service.constants import AllowedCategories
 
-st.markdown("# Barcode Scanner")
-st.sidebar.markdown("# Barcode Scanner")
+logo = get_images()["logo"]
+render_logo(logo)
+
 
 allowed_categories = [str(e) for e in AllowedCategories]
 
@@ -51,6 +54,7 @@ if img_file_buffer is not None:
             if st.button("Submit"):
                 new_item["id"] = detected_item_id
                 create_item(new_item)
+                st.text("✅ Added!")
         else:
             item_to_update = {
                 "name": st.text_input(label="Name", value=existing_item["name"]),
@@ -64,6 +68,6 @@ if img_file_buffer is not None:
             if st.button("Update"):
                 item_to_update["id"] = existing_item["id"]
                 update_item(item_to_update)
-
+                st.text("✅ Updated!")
     else:
         st.write("Nothing detected")

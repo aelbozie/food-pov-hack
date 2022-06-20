@@ -33,7 +33,7 @@ def test_create_item_with_barcode(client: TestClient, empty_db: Session) -> None
 
 def test_create_with_fake_category_fails(client: TestClient, empty_db: Session) -> None:
     item = schemas.ItemCreateWithBarcode(
-        id="1234", name="foo", quantity=123, category=AllowedCategories.non_perishables
+        id="1234", name="foo", quantity=123, category=AllowedCategories.food_cupboard
     ).dict()
     item["category"] = "foo"
     response = client.post("/items/create_with_barcode/", json=json.dumps(item))
@@ -42,7 +42,7 @@ def test_create_with_fake_category_fails(client: TestClient, empty_db: Session) 
 
 def test_create_item_with_barcode_fails_with_existing_item(client: TestClient, mock_items: List[models.Item]) -> None:
     item = schemas.ItemCreateWithBarcode(
-        id=mock_items[0].id, name="foo", quantity=123, category=AllowedCategories.non_perishables
+        id=mock_items[0].id, name="foo", quantity=123, category=AllowedCategories.food_cupboard
     )
     response = client.post("/items/create_with_barcode/", json=item.dict())
     assert response.status_code == 400
