@@ -6,11 +6,12 @@ import streamlit as st
 from PIL import Image
 from pyzbar import pyzbar
 
-from app.client import create_item, get_item, update_item
 from service.constants import AllowedCategories
+from web.client import create_item, get_item, update_item
+from web.images import get_images, render_logo
 
-st.markdown("# Barcode Scanner")
-st.sidebar.markdown("# Barcode Scanner")
+logo = get_images()["logo"]
+render_logo(logo)
 
 allowed_categories = [str(e) for e in AllowedCategories]
 
@@ -51,6 +52,7 @@ if img_file_buffer is not None:
             if st.button("Submit"):
                 new_item["id"] = detected_item_id
                 create_item(new_item)
+                st.text("✅ Added!")
         else:
             item_to_update = {
                 "name": st.text_input(label="Name", value=existing_item["name"]),
@@ -64,6 +66,6 @@ if img_file_buffer is not None:
             if st.button("Update"):
                 item_to_update["id"] = existing_item["id"]
                 update_item(item_to_update)
-
+                st.text("✅ Updated!")
     else:
         st.write("Nothing detected")

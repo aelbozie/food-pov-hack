@@ -6,3 +6,4 @@ Dockerfile.*
 setup.cfg
 tests/
 .github/
+__pycache__/
