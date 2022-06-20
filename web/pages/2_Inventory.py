@@ -1,8 +1,8 @@
 import pandas as pd
 import streamlit as st
 
-from app.client import get_items
-from app.images import get_images, render_logo
+from web.client import get_items
+from web.images import get_images, render_logo
 
 logo = get_images()["logo"]
 render_logo(logo)
