@@ -6,6 +6,6 @@ export STREAMLIT_PORT=${PORT:-8001}
 
 rm -f data/inventory.db
 
-PYTHONPATH="." streamlit run web/1_Barcode_Scanner.py --server.port $STREAMLIT_PORT --server.address 0.0.0.0 &&
-uvicorn service.main:app --proxy-headers --port $FASTAPI_PORT --host 0.0.0.0 
+PYTHONPATH="." streamlit run web/1_Barcode_Scanner.py --server.port $STREAMLIT_PORT --server.address localhost &&
+uvicorn service.main:app --proxy-headers --port $FASTAPI_PORT --host localhost
 
