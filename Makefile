@@ -5,9 +5,9 @@ install:
 	poetry install
 
 lint:
-	poetry run isort app service tests
-	poetry run black app service tests
-	poetry run flake8 app service tests
+	poetry run isort web service tests
+	poetry run black web service tests
+	poetry run flake8 web service tests
 
 test:
 	poetry run pytest tests

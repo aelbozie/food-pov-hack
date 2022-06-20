@@ -6,9 +6,9 @@ import streamlit as st
 from PIL import Image
 from pyzbar import pyzbar
 
+from service.constants import AllowedCategories
 from web.client import create_item, get_item, update_item
 from web.images import get_images, render_logo
-from service.constants import AllowedCategories
 
 logo = get_images()["logo"]
 render_logo(logo)
