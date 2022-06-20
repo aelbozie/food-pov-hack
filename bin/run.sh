@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 export INITIALISE_WITH_MOCK_DATA=1
-export FASTAPI_PORT=${PORT:-8000}
+export FASTAPI_PORT=${8000}
 export STREAMLIT_PORT=${PORT:-8001}
 
 rm -f data/inventory.db
