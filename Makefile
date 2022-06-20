@@ -16,7 +16,7 @@ run_service:
 	poetry run uvicorn service.main:app --reload
 
 run_app:
-	poetry run streamlit run app/1_Food_to_Bank.py --server.port 8001
+	poetry run bin/run.sh
 
 build:
 	docker build -f Dockerfile.python . -t foodhack:latest
