@@ -7,3 +7,6 @@ class AllowedCategories(str, Enum):
     household = "Household"
     baby = "Baby"
     miscellaneous = "Miscellaneous"
+
+    def __str__(self) -> str:
+        return str(self.value)
