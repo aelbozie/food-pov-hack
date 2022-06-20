@@ -1,3 +1,7 @@
 build:
   docker:
     web: Dockerfile.python
+    server: Dockerfile.python
+run:
+  web: PYTHONPATH="." streamlit run web/1_Barcode_Scanner.py --server.port $PORT --server.address 0.0.0.0
+  server: uvicorn service.main:app --proxy-headers --port $PORT --host 0.0.0.0
